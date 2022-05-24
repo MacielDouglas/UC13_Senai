@@ -56,11 +56,6 @@ UPDATE Usuarios
 SET Senha = '098876'
 WHERE UsuarioId = 1
 
-DELETE Usuarios
-WHERE UsuarioId = 3
-
-INSERT INTO Usuarios VALUES ('mail@email.com', '123456')
-
 --DQL 
 SELECT * FROM Usuarios
 
@@ -71,27 +66,6 @@ ON Personagens.ClasseId = Classes.ClasseId
 
 SELECT P.NomePersonagem, C.Nome 'Nome da Classe', C.Descricao FROM Personagens P JOIN Classes C
 ON P.ClasseId = C.ClasseId 
-
---Criando uma permissão
-
-CREATE LOGIN usuario
-WITH PASSWORD = '1234'
-
-CREATE USER usuario FOR LOGIN usuario
-
-GRANT SELECT TO usuario
-
---Com login usuario, ele pode listar os usuarios 
-
-SELECT * FROM Usuarios
-
---Após login com usuario, ele não tem permissão para os comandos abaixo, inserir ou deletar
-
-INSERT INTO Usuarios VALUES ('mail@email.com', '123456')
-
-DELETE Usuarios
-WHERE UsuarioId = 3
-
 
 
 
